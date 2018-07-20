@@ -78,53 +78,53 @@ defmodule Numbers do
   end
 
   koan "Just want to parse to a float" do
-    assert Float.parse("34.5") == {___, ""}
+    assert Float.parse("34.5") == {34.5, ""}
   end
 
   koan "Hmm, I want to parse this but it has some strings" do
-    assert Float.parse("1.5 million dollars") == {___, " million dollars"}
+    assert Float.parse("1.5 million dollars") == {1.5, " million dollars"}
   end
 
   koan "I don't want this decimal point, let's round up" do
-    assert Float.ceil(34.25) == ___
+    assert Float.ceil(34.25) == 35.0
   end
 
   koan "OK, I only want it to 1 decimal place" do
-    assert Float.ceil(34.25, 1) == ___
+    assert Float.ceil(34.25, 1) == 34.3
   end
 
   koan "Rounding down is what I need" do
-    assert Float.floor(99.99) == ___
+    assert Float.floor(99.99) == 99.0
   end
 
   koan "Rounding down to 2 decimal places" do
-    assert Float.floor(12.345, 2) == ___
+    assert Float.floor(12.345, 2) == 12.34
   end
 
   koan "Round the number up or down for me" do
-    assert Float.round(5.5) == ___
-    assert Float.round(5.4) == ___
-    assert Float.round(8.94, 1) == ___
-    assert Float.round(-5.5674, 3) == ___
+    assert Float.round(5.5) == 6.0
+    assert Float.round(5.4) == 5.0
+    assert Float.round(8.94, 1) == 8.9
+    assert Float.round(-5.5674, 3) == -5.567
   end
 
   koan "I want the first and last in the range" do
     first..last = Range.new(1, 10)
 
-    assert first == ___
-    assert last == ___
+    assert first == 1
+    assert last == 10
   end
 
   koan "Does my number exist in the range?" do
     range = Range.new(1, 10)
 
-    assert 4 in range == ___
-    assert 10 in range == ___
-    assert 0 in range == ___
+    assert 4 in range == true
+    assert 10 in range == true
+    assert 0 in range == false
   end
 
   koan "Is this a range?" do
-    assert Range.range?(1..10) == ___
-    assert Range.range?(0) == ___
+    assert Range.range?(1..10) == true
+    assert Range.range?(0) == false
   end
 end
